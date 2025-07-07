@@ -86,7 +86,7 @@ function InicioPage() {
   const idCircuito = datosPresidente.idCircuito;
 
   // Obtener hora actual en zona de Uruguay
-  const ahora = new Date().toLocaleTimeString('es-UY', {
+ /* const ahora = new Date().toLocaleTimeString('es-UY', {
     timeZone: 'America/Montevideo',
     hour12: false,
     hour: '2-digit',
@@ -98,7 +98,7 @@ function InicioPage() {
   if (hora < 8 || (hora === 8 && minuto < 30)) {
     setErrorHabilitacion('No se puede habilitar la votación antes de las 08:30 en Uruguay.');
     return;
-  }
+  }*/
 
   try {
     const res = await fetch(`http://localhost:4000/habilitarVotacion/${idCircuito}`, {

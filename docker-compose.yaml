@@ -28,3 +28,17 @@ services:  # Define los contenedores que forman parte de esta aplicación.
       - DB_USER=${DB_USER}  # Usuario de la base de datos.
       - DB_PASSWORD=${DB_PASSWORD}  # Contraseña del usuario de la base de datos.
       - DB_NAME=${DB_NAME}  # Nombre de la base de datos.
+
+  db:
+    image: mysql:8.0
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: IC_Grupo1
+      MYSQL_USER: ic_g1_admin
+      MYSQL_PASSWORD: Bd2025!
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
